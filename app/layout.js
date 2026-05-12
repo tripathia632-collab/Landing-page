@@ -22,7 +22,17 @@ export default function RootLayout({ children }) {
               <ul className="nav-links">
                 <li><a href="/">Home</a></li>
                 <li><a href="/about">About</a></li>
-                <li><a href="/activities">Activities</a></li>
+                <li className="dropdown">
+                  <a href="/activities" className="active">Activities ▾</a>
+                  <div className="dropdown-menu">
+                    <a href="/activities/gurukul">Gurukul</a>
+                    <a href="/activities/school">School</a>
+                    <a href="/activities/gaushala">Gaushala</a>
+                    <a href="/activities/farming">Organic Farming</a>
+                    <a href="/activities/archery">Archery</a>
+                    <a href="/activities/satsang">Satsang</a>
+                  </div>
+                </li>
                 <li><a href="/gallery">Gallery</a></li>
                 <li><a href="/stay">Stay</a></li>
                 <li><a href="/donate">Donate</a></li>
