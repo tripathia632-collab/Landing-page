@@ -1,0 +1,38 @@
+{
+  "ashram": {
+    "name": "Ma Sharanam Ashram",
+    "founded": "2015",
+    "location": "On the banks of the holy river Narmada",
+    "address": "Ma Sharanam Ashram, Narmada Bank, [District/State]",
+    "phone": "+91-930-200-1809",
+    "email": "gurusharan7@gmail.com",
+    "youtube": "@masharanam",
+    "facebook": "ma.sharanam.58"
+  },
+  "activities": {
+    "gurukul": {
+      "title": "Ma Sharanam Gurukul",
+      "description": "A residential school where students live and learn free of cost, preserving ancient traditions and values."
+    },
+    "school": {
+      "title": "Ma Sharanam School",
+      "description": "Providing quality education free for all, empowering the local community and children."
+    },
+    "gaushala": {
+      "title": "Gaushala",
+      "description": "Serving and protecting indigenous cows, promoting cow-based agriculture and health."
+    },
+    "organic_farming": {
+      "title": "Organic Agriculture",
+      "description": "Practicing sustainable and chemical-free farming on the fertile lands of the Narmada."
+    },
+    "archery": {
+      "title": "Archery Excellence",
+      "description": "Our students practice traditional archery and have won gold medals at the national level."
+    },
+    "satsang": {
+      "title": "Daily Satsang",
+      "description": "Daily Matri Vani sessions and weekly live Zoom sessions on Sundays with Swami ji."
+    }
+  }
+}
