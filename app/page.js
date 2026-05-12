@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="hero" style={{minHeight: '80vh'}}>
+      <section className="hero" style={{minHeight: '85vh'}}>
         <div className="hero-bg" style={{
           backgroundImage: 'linear-gradient(rgba(10, 21, 12, 0.7), rgba(10, 21, 12, 0.9)), url("https://images.unsplash.com/photo-1545208393-21602d1e82e7?ixlib=rb-4.0.3")',
           backgroundSize: 'cover',
@@ -12,6 +12,10 @@ export default function Home() {
         }}></div>
         <div className="container">
           <div className="hero-content" style={{maxWidth: '800px', margin: '0 auto', textAlign: 'center'}}>
+            {/* Logo in Hero */}
+            <img src="/logo.png" alt="Ma Sharanam Logo" style={{height: '100px', width: 'auto', borderRadius: '50%', marginBottom: '1.5rem', border: '2px solid var(--gold)'}} />
+            
+            <br />
             <span className="badge" style={{borderColor: 'var(--gold)', color: 'var(--gold)'}}>Established 2015</span>
             <h1 style={{fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', color: 'var(--cream)', marginBottom: '1rem'}}>
               {content.ashram.name}
@@ -55,7 +59,7 @@ export default function Home() {
               <div className="card-icon" style={{fontSize: '2.5rem', color: 'var(--gold)'}}>🏹</div>
               <h3 style={{marginTop: '1rem'}}>{content.activities.gurukul.title}</h3>
               <p style={{color: 'rgba(245,237,224,0.7)'}}>{content.activities.gurukul.description}</p>
-              <a href="/activities#gurukul" className="card-link">Explore →</a>
+              <a href="/activities/gurukul" className="card-link">Explore →</a>
             </div>
 
             {/* School */}
@@ -63,7 +67,7 @@ export default function Home() {
               <div className="card-icon" style={{fontSize: '2.5rem', color: 'var(--gold)'}}>📚</div>
               <h3 style={{marginTop: '1rem'}}>{content.activities.school.title}</h3>
               <p style={{color: 'rgba(245,237,224,0.7)'}}>{content.activities.school.description}</p>
-              <a href="/activities#school" className="card-link">Explore →</a>
+              <a href="/activities/school" className="card-link">Explore →</a>
             </div>
 
             {/* Gaushala */}
@@ -71,7 +75,7 @@ export default function Home() {
               <div className="card-icon" style={{fontSize: '2.5rem', color: 'var(--gold)'}}>🐄</div>
               <h3 style={{marginTop: '1rem'}}>{content.activities.gaushala.title}</h3>
               <p style={{color: 'rgba(245,237,224,0.7)'}}>{content.activities.gaushala.description}</p>
-              <a href="/activities#gaushala" className="card-link">Explore →</a>
+              <a href="/activities/gaushala" className="card-link">Explore →</a>
             </div>
           </div>
         </div>
@@ -94,7 +98,7 @@ export default function Home() {
               <p style={{color: 'var(--gold)'}}>
                 "The search for Truth is the only true search."
               </p>
-              <a href="/about#books" className="btn btn-primary" style={{marginTop: '1rem'}}>View Publications</a>
+              <a href="/about" className="btn btn-primary" style={{marginTop: '1rem'}}>View Publications</a>
             </div>
           </div>
         </div>

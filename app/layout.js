@@ -11,8 +11,8 @@ export default function RootLayout({ children }) {
       <body>
         <header className="navbar">
           <div className="container">
-            <div className="nav-logo">
-              <div className="nav-logo-icon">🕉️</div>
+            <div className="nav-logo" style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+              <img src="/logo.png" alt="Ma Sharanam Logo" style={{height: '50px', width: 'auto', borderRadius: '50%'}} />
               <div>
                 <div className="nav-logo-text">Ma Sharanam</div>
                 <div className="nav-logo-sub">Est. 2015</div>
@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
                 <li><a href="/">Home</a></li>
                 <li><a href="/about">About</a></li>
                 <li className="dropdown">
-                  <a href="/activities" className="active">Activities ▾</a>
+                  <a href="/activities">Activities ▾</a>
                   <div className="dropdown-menu">
                     <a href="/activities/gurukul">Gurukul</a>
                     <a href="/activities/school">School</a>
