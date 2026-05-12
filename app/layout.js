@@ -14,14 +14,20 @@ export default function RootLayout({ children }) {
             <div className="nav-logo">
               <div className="nav-logo-icon">🕉️</div>
               <div>
-                <div className="nav-logo-text">Ma Sharanam Ashram</div>
-                <div className="nav-logo-sub">Est. 2018</div>
+                <div className="nav-logo-text">Ma Sharanam</div>
+                <div className="nav-logo-sub">Est. 2015</div>
               </div>
             </div>
             <nav>
               <ul className="nav-links">
                 <li><a href="/">Home</a></li>
-                <li><a href="/login" className="btn btn-primary" style={{color: '#0a150c'}}>Member Login</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/activities">Activities</a></li>
+                <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/stay">Stay</a></li>
+                <li><a href="/donate">Donate</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/login" className="btn btn-primary" style={{color: '#0a150c', padding: '.4rem 1rem'}}>Member Login</a></li>
               </ul>
             </nav>
           </div>
@@ -30,6 +36,9 @@ export default function RootLayout({ children }) {
         <footer className="footer">
           <div className="container text-center">
             <p>&copy; 2026 Ma Sharanam Ashram. All rights reserved.</p>
+            <div style={{marginTop: '0.5rem', fontSize: '0.8rem', color: 'var(--muted)'}}>
+              On the banks of the Narmada | Established 2015
+            </div>
           </div>
         </footer>
       </body>
