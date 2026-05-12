@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Satsang & Spiritual Programs — Ma Sharanam Ashram</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="nav-root"></div>
+<section class="hero" style="min-height:60vh;">
+  <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1545389336-cf090694435e?w=1920&q=80');filter:brightness(.4);"></div>
+  <div class="container"><div class="hero-content">
+    <span class="badge">Daily Spiritual Life</span>
+    <h1 id="st-heading"></h1>
+    <p class="hero-sub" id="st-sub"></p>
+  </div></div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <span class="badge">Open to All Seekers</span>
+      <h2>Spiritual Programs</h2><div class="divider"></div>
+      <p id="st-intro"></p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1.5rem;" id="programs-list"></div>
+  </div>
+</section>
+
+<!-- Retreat -->
+<section class="section" style="background:var(--bg2);">
+  <div class="container">
+    <div class="grid-2">
+      <div class="reveal">
+        <span class="badge">Residential Programs</span>
+        <h2 id="retreat-heading"></h2>
+        <div class="divider left"></div>
+        <p id="retreat-text"></p>
+        <a id="retreat-cta" href="contact.html" class="btn btn-primary" style="margin-top:1.5rem;"></a>
+      </div>
+      <div class="reveal">
+        <span class="badge">Watch Online</span>
+        <h2 id="online-heading"></h2>
+        <div class="divider left"></div>
+        <p id="online-text"></p>
+        <a id="youtube-link" href="#" target="_blank" class="btn btn-outline" style="margin-top:1.5rem;">▶ Watch on YouTube</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Schedule -->
+<section class="section">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <span class="badge">Daily Schedule</span>
+      <h2>A Day at the Ashram</h2><div class="divider"></div>
+    </div>
+    <div style="max-width:700px;margin:0 auto;">
+      <ul class="schedule-list" id="satsang-schedule"></ul>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+<script src="data/content.js"></script><script src="js/main.js"></script>
+<script>
+(function(){
+  const s = window.SITE.satsang; const h = window.SITE.home;
+  document.getElementById('nav-root').innerHTML    = buildNav('satsang.html');
+  document.getElementById('footer-root').innerHTML = buildFooter();
+  document.getElementById('st-heading').textContent     = s.heroHeading;
+  document.getElementById('st-sub').textContent         = s.heroSub;
+  document.getElementById('st-intro').textContent       = s.intro;
+  document.getElementById('retreat-heading').textContent= s.retreatHeading;
+  document.getElementById('retreat-text').textContent   = s.retreatText;
+  document.getElementById('retreat-cta').textContent    = s.retreatCta;
+  document.getElementById('retreat-cta').href           = s.retreatCtaLink;
+  document.getElementById('online-heading').textContent = s.onlineHeading;
+  document.getElementById('online-text').textContent    = s.onlineText;
+  document.getElementById('youtube-link').href          = s.youtubeLink;
+  document.getElementById('programs-list').innerHTML    = s.programs.map(p=>`
+    <div class="card reveal" style="display:grid;grid-template-columns:60px 1fr;gap:1.5rem;align-items:start;">
+      <div style="font-size:2.2rem;text-align:center;">${p.icon}</div>
+      <div><h3 style="margin-bottom:.5rem;">${p.title}</h3><p>${p.desc}</p></div>
+    </div>`).join('');
+  document.getElementById('satsang-schedule').innerHTML = h.schedule.map(sc=>`
+    <li class="schedule-item"><span class="schedule-time">${sc.time}</span><span class="schedule-act">${sc.act}</span></li>`).join('');
+  initScrollReveal();
+})();
+</script>
+</body></html>

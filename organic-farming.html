@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Organic Farming — Ma Sharanam Ashram</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="nav-root"></div>
+<section class="page-hero">
+  <div class="container">
+    <span class="badge">Natural Farming</span>
+    <h1 id="of-heading"></h1><p id="of-sub"></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="img-text">
+      <div class="img-wrap reveal"><img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=800&q=80" alt="Organic farm"></div>
+      <div class="text-block reveal">
+        <span class="badge">Our Farm</span>
+        <h2>Back to the Roots</h2>
+        <div class="divider left"></div>
+        <p id="of-intro1"></p>
+        <p id="of-intro2" style="margin-top:.75rem;"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg2);">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <span class="badge">Our Methods</span>
+      <h2>Farming Practices</h2><div class="divider"></div>
+    </div>
+    <div class="grid-3" id="of-practices"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid-2">
+      <div class="card reveal">
+        <h3 style="color:var(--gold);">🌾 What We Grow</h3>
+        <div class="divider left"></div>
+        <ul id="of-produce" style="list-style:none;"></ul>
+      </div>
+      <div class="card reveal">
+        <h3 style="color:var(--gold);">🧑‍🌾 Volunteer on the Farm</h3>
+        <div class="divider left"></div>
+        <p id="of-volunteer"></p>
+        <a href="contact.html" class="btn btn-primary" style="margin-top:1.5rem;">Register for Seva</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+<script src="data/content.js"></script><script src="js/main.js"></script>
+<script>
+(function(){
+  const f = window.SITE.organicFarming;
+  document.getElementById('nav-root').innerHTML    = buildNav('organic-farming.html');
+  document.getElementById('footer-root').innerHTML = buildFooter();
+  document.getElementById('of-heading').textContent  = f.heroHeading;
+  document.getElementById('of-sub').textContent      = f.heroSub;
+  document.getElementById('of-intro1').textContent   = f.intro1;
+  document.getElementById('of-intro2').textContent   = f.intro2;
+  document.getElementById('of-volunteer').textContent= f.volunteerText;
+  document.getElementById('of-practices').innerHTML  = f.practices.map(p=>`
+    <div class="card reveal"><div class="card-icon">${p.icon}</div><h3>${p.title}</h3><p>${p.desc}</p></div>`).join('');
+  document.getElementById('of-produce').innerHTML    = f.produce.map(p=>`
+    <li style="padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.9rem;">🌿 ${p}</li>`).join('');
+  initScrollReveal();
+})();
+</script>
+</body></html>

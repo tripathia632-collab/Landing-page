@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Gurukul — Ma Sharanam Ashram</title>
+  <meta name="description" content="The Gurukul at Ma Sharanam Ashram — traditional Vedic residential education for children.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="nav-root"></div>
+
+<section class="hero" style="min-height:60vh;">
+  <div class="hero-bg" id="gurukul-bg"></div>
+  <div class="container"><div class="hero-content">
+    <span class="badge">Traditional Education</span>
+    <h1 id="gk-heading"></h1>
+    <p class="hero-sub" id="gk-sub"></p>
+  </div></div>
+</section>
+
+<!-- Intro -->
+<section class="section">
+  <div class="container">
+    <div class="img-text">
+      <div class="text-block reveal">
+        <span class="badge">What is the Gurukul?</span>
+        <h2>Ancient Wisdom, Modern World</h2>
+        <div class="divider left"></div>
+        <p id="gk-intro1"></p>
+        <p id="gk-intro2" style="margin-top:.75rem;"></p>
+      </div>
+      <div class="img-wrap reveal">
+        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80" alt="Gurukul students">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Curriculum -->
+<section class="section" style="background:var(--bg2);">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <span class="badge">Curriculum</span>
+      <h2>What Students Learn</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="grid-4" id="curriculum-grid"></div>
+  </div>
+</section>
+
+<!-- Admissions -->
+<section class="section">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <span class="badge">Admissions</span>
+      <h2>How to Enroll</h2>
+      <div class="divider"></div>
+      <p>Age: <strong id="gk-age" style="color:var(--gold);"></strong> &nbsp;|&nbsp; Intake month: <strong id="gk-month" style="color:var(--gold);"></strong></p>
+    </div>
+    <div class="grid-4" id="admission-steps"></div>
+    <div class="card reveal" style="margin-top:2rem;text-align:center;max-width:700px;margin-left:auto;margin-right:auto;">
+      <div class="card-icon">💛</div>
+      <h3>Fee Structure</h3>
+      <p id="gk-fee"></p>
+      <a href="contact.html" class="btn btn-primary" style="margin-top:1.25rem;">Contact Us for Admissions</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+<script src="data/content.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function(){
+  const g = window.SITE.gurukul;
+  document.getElementById('nav-root').innerHTML    = buildNav('gurukul.html');
+  document.getElementById('footer-root').innerHTML = buildFooter();
+  document.getElementById('gurukul-bg').style.backgroundImage=`url('${g.heroImage}')`;
+  document.getElementById('gurukul-bg').style.cssText+=';filter:brightness(.5)';
+  document.getElementById('gk-heading').textContent = g.heroHeading;
+  document.getElementById('gk-sub').textContent     = g.heroSub;
+  document.getElementById('gk-intro1').textContent  = g.intro1;
+  document.getElementById('gk-intro2').textContent  = g.intro2;
+  document.getElementById('gk-age').textContent     = g.ageRange;
+  document.getElementById('gk-month').textContent   = g.admissionMonth;
+  document.getElementById('gk-fee').textContent     = g.admissionFee;
+  document.getElementById('curriculum-grid').innerHTML = g.curriculum.map(c=>`
+    <div class="card reveal">
+      <h3 style="color:var(--gold);font-size:1rem;margin-bottom:1rem;">${c.title}</h3>
+      <ul style="list-style:none;">${c.items.map(i=>`<li style="padding:.3rem 0;font-size:.88rem;border-bottom:1px solid rgba(255,255,255,.05);">✦ ${i}</li>`).join('')}</ul>
+    </div>`).join('');
+  document.getElementById('admission-steps').innerHTML = g.admissionSteps.map(s=>`
+    <div class="card reveal text-center">
+      <div style="font-size:1.8rem;font-weight:700;color:var(--gold);font-family:'Cormorant Garamond',serif;">${s.step}</div>
+      <h3 style="margin:.5rem 0;">${s.title}</h3>
+      <p>${s.text}</p>
+    </div>`).join('');
+  initScrollReveal();
+})();
+</script>
+</body></html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Blog — Ma Sharanam Ashram</title>
+  <meta name="description" content="Spiritual articles, teachings, and ashram updates from Ma Sharanam Ashram.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .filter-bar { display:flex; gap:.75rem; flex-wrap:wrap; justify-content:center; margin-bottom:2.5rem; }
+    .filter-btn { padding:.45rem 1.25rem; border-radius:50px; border:1px solid var(--border); background:transparent; color:var(--cream); font-size:.85rem; cursor:pointer; transition:var(--transition); }
+    .filter-btn:hover,.filter-btn.active { background:var(--gold); border-color:var(--gold); color:#0a150c; font-weight:600; }
+    #blog-loading { text-align:center; padding:3rem; color:var(--muted); }
+    .blog-spinner { display:inline-block; width:32px; height:32px; border:3px solid var(--border); border-top-color:var(--gold); border-radius:50%; animation:spin .7s linear infinite; margin-bottom:1rem; }
+    @keyframes spin { to { transform:rotate(360deg); } }
+  </style>
+</head>
+<body>
+<div id="nav-root"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="badge">Wisdom & Updates</span>
+    <h1>Blog & Teachings</h1>
+    <p>Spiritual insights, ashram news, and teachings freely shared with the world.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="filter-bar">
+      <button class="filter-btn active" data-category="all">All Posts</button>
+      <button class="filter-btn" data-category="Matri Vani">Matri Vani</button>
+      <button class="filter-btn" data-category="Ashram">Ashram News</button>
+      <button class="filter-btn" data-category="Teachings">Teachings</button>
+      <button class="filter-btn" data-category="Events">Events</button>
+    </div>
+    <div id="blog-loading"><div class="blog-spinner"></div><br>Loading posts…</div>
+    <div class="grid-3" id="blog-grid"></div>
+  </div>
+</section>
+
+<!-- Subscribe CTA -->
+<section class="section" style="background:var(--bg2);">
+  <div class="container text-center reveal">
+    <span class="badge">Stay Connected</span>
+    <h2 style="margin:.75rem 0;">Subscribe to Our YouTube Channel</h2>
+    <p style="max-width:500px;margin:.75rem auto 2rem;">Get notified every time Swami Gurusharan's Matri Vani is live. Free and open to all.</p>
+    <a href="http://www.youtube.com/@masharanam" target="_blank" class="btn btn-primary">▶ Subscribe on YouTube</a>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+<script src="data/content.js"></script>
+<script src="js/main.js"></script>
+<script type="module" src="js/blog.js"></script>
+<script>
+  document.getElementById('nav-root').innerHTML    = buildNav('blog.html');
+  document.getElementById('footer-root').innerHTML = buildFooter();
+</script>
+</body></html>

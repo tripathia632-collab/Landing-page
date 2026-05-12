@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Member Login — Ma Sharanam Ashram</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="nav-root"></div>
+
+<div class="login-wrap">
+  <div class="login-box">
+    <div class="login-logo">
+      <div class="icon">🕉️</div>
+      <h2>Members' Login</h2>
+      <p>Access exclusive spiritual teachings and resources</p>
+    </div>
+    <div class="login-error" id="login-error"></div>
+    <form id="login-form">
+      <div class="form-group">
+        <label for="login-email">Email Address</label>
+        <input id="login-email" type="email" placeholder="your@email.com" required autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input id="login-password" type="password" placeholder="Your password" required autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;margin-top:.5rem;">Sign In 🙏</button>
+    </form>
+    <p style="text-align:center;margin-top:1.5rem;font-size:.82rem;color:var(--muted);">
+      Not a member yet? <a href="contact.html" style="color:var(--gold);">Contact the ashram</a> to register.
+    </p>
+    <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center;">
+      <a href="index.html" style="font-size:.82rem;color:var(--muted);">← Back to Ashram Website</a>
+    </div>
+  </div>
+</div>
+
+<script src="data/content.js"></script>
+<script src="js/main.js"></script>
+<script type="module" src="js/auth.js"></script>
+<script>
+  document.getElementById('nav-root').innerHTML = buildNav('login.html');
+</script>
+</body></html>

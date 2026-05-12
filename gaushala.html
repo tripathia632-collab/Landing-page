@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Gaushala — Ma Sharanam Ashram</title>
+  <meta name="description" content="Ma Sharanam Gaushala — a sacred cow sanctuary where desi cows are protected and cared for.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="nav-root"></div>
+
+<section class="hero" style="min-height:60vh;">
+  <div class="hero-bg" id="gs-bg"></div>
+  <div class="container"><div class="hero-content">
+    <span class="badge">Gau Seva</span>
+    <h1 id="gs-heading"></h1>
+    <p class="hero-sub" id="gs-sub"></p>
+  </div></div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="img-text">
+      <div class="img-wrap reveal"><img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=800&q=80" alt="Gaushala cows"></div>
+      <div class="text-block reveal">
+        <span class="badge">Our Gaushala</span>
+        <h2>Caring for Gau Mata</h2>
+        <div class="divider left"></div>
+        <p id="gs-intro1"></p>
+        <p id="gs-intro2" style="margin-top:.75rem;"></p>
+        <div style="margin-top:1.5rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+          <div style="text-align:center;">
+            <div class="stat-num" id="gs-count"></div>
+            <div class="stat-label">Cows Protected</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg2);">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <span class="badge">Our Practices</span>
+      <h2>How We Care</h2><div class="divider"></div>
+    </div>
+    <div class="grid-3" id="gs-features"></div>
+  </div>
+</section>
+
+<!-- Sponsor CTA -->
+<section class="section">
+  <div class="container">
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:3rem;text-align:center;max-width:700px;margin:0 auto;" class="reveal">
+      <div style="font-size:3rem;">🐄</div>
+      <h2 style="margin:.75rem 0;">Sponsor a Gau Mata</h2>
+      <p style="margin-bottom:2rem;">₹3,000/month covers the complete care of one desi cow. Receive updates and photos of your sponsored cow.</p>
+      <a href="donate.html" class="btn btn-primary">Sponsor Now 🙏</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+<script src="data/content.js"></script><script src="js/main.js"></script>
+<script>
+(function(){
+  const g = window.SITE.gaushala;
+  document.getElementById('nav-root').innerHTML    = buildNav('gaushala.html');
+  document.getElementById('footer-root').innerHTML = buildFooter();
+  document.getElementById('gs-bg').style.backgroundImage = `url('${g.heroImage}')`;
+  document.getElementById('gs-bg').style.cssText += ';filter:brightness(.45)';
+  document.getElementById('gs-heading').textContent = g.heroHeading;
+  document.getElementById('gs-sub').textContent     = g.heroSub;
+  document.getElementById('gs-intro1').textContent  = g.intro1;
+  document.getElementById('gs-intro2').textContent  = g.intro2;
+  document.getElementById('gs-count').textContent   = g.cowCount;
+  document.getElementById('gs-features').innerHTML  = g.features.map(f=>`
+    <div class="card reveal"><div class="card-icon">${f.icon}</div><h3>${f.title}</h3><p>${f.desc}</p></div>`).join('');
+  initScrollReveal();
+})();
+</script>
+</body></html>

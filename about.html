@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>About Us — Ma Sharanam Ashram</title>
+  <meta name="description" content="Learn about Ma Sharanam Ashram, our founder Swami Gurusharan, mission, vision, and journey since 2018.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="nav-root"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="badge">Our Story</span>
+    <h1 id="about-hero-h"></h1>
+    <p id="about-hero-sub"></p>
+  </div>
+</section>
+
+<!-- Mission & Vision -->
+<section class="section">
+  <div class="container">
+    <div class="grid-2">
+      <div class="card reveal">
+        <div class="card-icon">🎯</div>
+        <h3>Our Mission</h3>
+        <div class="divider left"></div>
+        <p id="mission-text"></p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">🌟</div>
+        <h3>Our Vision</h3>
+        <div class="divider left"></div>
+        <p id="vision-text"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Founder -->
+<section class="section" style="background:var(--bg2);">
+  <div class="container">
+    <div class="img-text">
+      <div class="img-wrap reveal">
+        <img id="founder-img" src="" alt="Swami Gurusharan">
+      </div>
+      <div class="text-block reveal">
+        <span class="badge">Our Guide</span>
+        <h2 id="founder-name"></h2>
+        <p id="founder-role" style="color:var(--gold);font-size:.9rem;margin-bottom:1rem;"></p>
+        <div class="divider left"></div>
+        <p id="founder-bio1"></p>
+        <p id="founder-bio2" style="margin-top:.75rem;"></p>
+        <p id="founder-bio3" style="margin-top:.75rem;"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Values -->
+<section class="section">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <span class="badge">What We Stand For</span>
+      <h2>Our Core Values</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="grid-3" id="values-grid"></div>
+  </div>
+</section>
+
+<!-- Story Timeline -->
+<section class="section" style="background:var(--bg2);">
+  <div class="container">
+    <div class="grid-2">
+      <div class="reveal">
+        <span class="badge">Our Journey</span>
+        <h2>The Story of Ma Sharanam</h2>
+        <div class="divider left"></div>
+        <p id="story-text1"></p>
+        <p id="story-text2" style="margin-top:.75rem;"></p>
+        <p id="story-text3" style="margin-top:.75rem;"></p>
+      </div>
+      <div class="reveal">
+        <div class="timeline" id="timeline"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Facilities -->
+<section class="section">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <span class="badge">Ashram Life</span>
+      <h2>Facilities at Ma Sharanam</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="grid-3" id="facilities-grid"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="background:var(--bg2);">
+  <div class="container text-center reveal">
+    <h2>Come, Experience the Ashram</h2>
+    <p style="margin:.75rem auto 2rem;max-width:500px;">Whether for a day visit, a retreat, or a longer stay — you are welcome at Ma Sharanam.</p>
+    <a href="contact.html" class="btn btn-primary" style="margin-right:1rem;">Plan a Visit</a>
+    <a href="donate.html" class="btn btn-outline">Support the Ashram</a>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+<script src="data/content.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function(){
+  const a = window.SITE.about;
+  document.getElementById('nav-root').innerHTML    = buildNav('about.html');
+  document.getElementById('footer-root').innerHTML = buildFooter();
+  document.getElementById('about-hero-h').textContent   = a.heroHeading;
+  document.getElementById('about-hero-sub').textContent = a.heroSub;
+  document.getElementById('mission-text').textContent   = a.mission;
+  document.getElementById('vision-text').textContent    = a.vision;
+  document.getElementById('founder-img').src        = a.founderImage;
+  document.getElementById('founder-name').textContent  = a.founderName;
+  document.getElementById('founder-role').textContent  = a.founderRole;
+  document.getElementById('founder-bio1').textContent  = a.founderBio1;
+  document.getElementById('founder-bio2').textContent  = a.founderBio2;
+  document.getElementById('founder-bio3').textContent  = a.founderBio3;
+  document.getElementById('story-text1').textContent   = a.storyText1;
+  document.getElementById('story-text2').textContent   = a.storyText2;
+  document.getElementById('story-text3').textContent   = a.storyText3;
+  document.getElementById('values-grid').innerHTML = a.values.map(v=>`
+    <div class="card reveal"><div class="card-icon">${v.icon}</div><h3>${v.title}</h3><p>${v.desc}</p></div>`).join('');
+  document.getElementById('timeline').innerHTML = a.milestones.map(m=>`
+    <div class="timeline-item"><div class="timeline-year">${m.year}</div><div class="timeline-event">${m.event}</div></div>`).join('');
+  document.getElementById('facilities-grid').innerHTML = a.facilities.map(f=>`
+    <div class="card reveal"><div class="card-icon">${f.icon}</div><h3>${f.title}</h3><p>${f.desc}</p></div>`).join('');
+  initScrollReveal();
+})();
+</script>
+</body></html>
