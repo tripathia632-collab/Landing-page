@@ -1,18 +1,25 @@
 import './globals.css';
+import { createClient } from '@/utils/supabase/server';
 
 export const metadata = {
   title: 'Ma Sharanam Ashram',
   description: 'A Divine Abode of Peace, Love & Spiritual Growth',
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const supabase = createClient();
+  
+  // Fetch the public URL for the logo uploaded by the user
+  const { data: urlData } = supabase.storage.from('gallery').getPublicUrl('logo.jpeg');
+  const logoUrl = urlData?.publicUrl || '/logo.png'; // Fallback to local if not found
+
   return (
     <html lang="en">
       <body>
         <header className="navbar">
           <div className="container">
             <div className="nav-logo" style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
-              <img src="/logo.png" alt="Ma Sharanam Logo" style={{height: '50px', width: 'auto', borderRadius: '50%'}} />
+              <img src={logoUrl} alt="Ma Sharanam Logo" style={{height: '50px', width: 'auto', borderRadius: '50%'}} />
               <div>
                 <div className="nav-logo-text">Ma Sharanam</div>
                 <div className="nav-logo-sub">Est. 2015</div>

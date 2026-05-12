@@ -1,6 +1,13 @@
 import content from '@/data/content.json';
+import { createClient } from '@/utils/supabase/server';
 
-export default function Home() {
+export default async function Home() {
+  const supabase = createClient();
+  
+  // Fetch the public URL for the logo uploaded by the user
+  const { data: urlData } = supabase.storage.from('gallery').getPublicUrl('logo.jpeg');
+  const logoUrl = urlData?.publicUrl || '/logo.png'; // Fallback to local if not found
+
   return (
     <div>
       {/* Hero Section */}
@@ -13,7 +20,7 @@ export default function Home() {
         <div className="container">
           <div className="hero-content" style={{maxWidth: '800px', margin: '0 auto', textAlign: 'center'}}>
             {/* Logo in Hero */}
-            <img src="/logo.png" alt="Ma Sharanam Logo" style={{height: '100px', width: 'auto', borderRadius: '50%', marginBottom: '1.5rem', border: '2px solid var(--gold)'}} />
+            <img src={logoUrl} alt="Ma Sharanam Logo" style={{height: '100px', width: 'auto', borderRadius: '50%', marginBottom: '1.5rem', border: '2px solid var(--gold)'}} />
             
             <br />
             <span className="badge" style={{borderColor: 'var(--gold)', color: 'var(--gold)'}}>Established 2015</span>
